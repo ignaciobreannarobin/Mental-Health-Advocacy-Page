@@ -17,7 +17,7 @@ body {
 /* Header/Logo */
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem; /* Even larger */
+    font-size: 2.8rem;
     font-weight: 900;
     letter-spacing: 4px;
 }
@@ -35,21 +35,36 @@ nav {
 nav ul { display: flex; list-style: none; }
 nav ul li a { text-decoration: none; color: var(--violet); margin-left: 2.5rem; font-weight: 600; }
 
-/* Hero */
+/* 1. Moving/Calming Animated Gradient Background */
+.animated-gradient-bg {
+    background: linear-gradient(-45deg, var(--mimi), var(--thistle), var(--pink), #fff);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .hero {
-    height: 70vh;
-    background: linear-gradient(135deg, var(--mimi) 0%, var(--thistle) 50%, var(--pink) 100%);
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-
 .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 20px; }
 
-/* About Us & Definition - Improved Font/Color */
+/* Sections Styling */
 .section { padding: 100px 10%; text-align: center; }
+.section-subtitle { font-size: 1.1rem; opacity: 0.7; margin-top: -10px; margin-bottom: 40px; }
+.light-text { color: #fff !important; opacity: 0.9; }
+.bg-alt { background-color: #fcfaff; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; margin-top: 50px; }
 
+/* About Us Definition */
 .definition-wrapper {
     background: #fff;
     border: 2px solid var(--mimi);
@@ -60,37 +75,16 @@ nav ul li a { text-decoration: none; color: var(--violet); margin-left: 2.5rem; 
     max-width: 900px;
     box-shadow: 0 15px 30px rgba(74, 50, 103, 0.05);
 }
-
 .phonetic { font-weight: 300; letter-spacing: 3px; display: block; margin-bottom: 10px; color: var(--blush); }
 .word { font-family: 'Playfair Display', serif; font-size: 3rem; display: block; color: var(--violet); }
 .meaning { font-size: 1.5rem; font-weight: 400; color: #555; font-style: italic; }
 
-/* Wellness Tips - Increased size */
-.wellness-list {
-    list-style: none;
-    text-align: left;
-    font-size: 1.25rem; /* Larger */
-}
-
-.wellness-list li {
-    margin-bottom: 20px;
-    padding-left: 30px;
-    position: relative;
-}
-
-.wellness-list li::before {
-    content: "•";
-    color: var(--blush);
-    font-size: 2rem;
-    position: absolute;
-    left: 0;
-    top: -10px;
-}
+/* Wellness Tips */
+.wellness-list { list-style: none; text-align: left; font-size: 1.25rem; }
+.wellness-list li { margin-bottom: 20px; padding-left: 30px; position: relative; }
+.wellness-list li::before { content: "•"; color: var(--blush); font-size: 2rem; position: absolute; left: 0; top: -10px; }
 
 /* Support 3D Boxes */
-.bg-alt { background-color: #fcfaff; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; margin-top: 50px; }
-
 .hotline-3d {
     background: #fff;
     padding: 30px;
@@ -99,55 +93,68 @@ nav ul li a { text-decoration: none; color: var(--violet); margin-left: 2.5rem; 
     box-shadow: 8px 8px 16px #e2dce2, -8px -8px 16px #ffffff;
     transition: transform 0.3s;
 }
-
 .hotline-3d:hover { transform: translateY(-8px); }
 .number { display: block; font-size: 2rem; font-weight: 800; color: var(--blush); }
 
-/* Volunteer - Fixed Squishing */
-.volunteer-area { background: var(--violet); color: #fff; padding: 120px 10%; }
-.volunteer-area h2 { color: var(--pink); }
-.volunteer-content { max-width: 800px; margin: 0 auto; }
+/* Volunteer Layout split with Image */
+.volunteer-area { background: var(--violet); color: #fff; padding: 100px 10%; }
+.volunteer-split { display: flex; align-items: center; gap: 50px; text-align: left; max-width: 1200px; margin: 0 auto; }
+.volunteer-content { flex: 1; }
+.volunteer-content h2 { color: var(--pink); margin-bottom: 20px; }
 .volunteer-content p { font-size: 1.2rem; margin-bottom: 40px; }
-.spacer-v { height: 20px; }
+.volunteer-image { flex: 1; display: flex; justify-content: center; }
+.volunteer-image img { width: 100%; max-width: 500px; height: 350px; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
 
-/* Buttons */
-.btn {
-    background: var(--blush);
+/* 2. Slideshow Testimonial Section with Scenery Background */
+.testimonial-wrapper-bg {
+    background: url('https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+    padding: 0 !important;
+    position: relative;
+}
+.testimonial-overlay {
+    background: rgba(74, 50, 103, 0.85); /* Blending violet with backdrop image */
+    padding: 100px 10%;
     color: white;
-    padding: 20px 50px;
-    border: none;
-    border-radius: 50px;
-    font-family: inherit;
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.3s;
 }
+.testimonial-overlay h2 { color: var(--pink); }
 
-.btn:hover {
-    background: var(--violet);
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
+.slideshow-container { max-width: 800px; position: relative; margin: auto; min-height: 220px; }
+.slide { display: none; text-align: center; }
+.slide .quote { font-size: 1.5rem; font-style: italic; line-height: 1.6; margin-bottom: 20px; }
+.slide .author { font-weight: 600; color: var(--pink); letter-spacing: 1px; }
 
-/* Contact Form */
+/* Slider Dots */
+.dot-container { text-align: center; margin-top: 20px; }
+.dot { cursor: pointer; height: 12px; width: 12px; margin: 0 5px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; transition: 0.3s; }
+.active, .dot:hover { background-color: var(--pink); transform: scale(1.2); }
+
+/* Animation Effect for Slider */
+.fade { animation: fadeEffect 1s; }
+@keyframes fadeEffect { from { opacity: .4 } to { opacity: 1 } }
+
+/* Impact/Metrics Box Styles */
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+.metric-box { background: #fff; padding: 40px 20px; border-radius: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.02); border-bottom: 4px solid var(--thistle); }
+.stat-number { display: block; font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: var(--violet); line-height: 1.1; margin-bottom: 10px; }
+.stat-label { font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--blush); }
+
+/* Interactive Global Button Treatment */
+.btn { background: var(--blush); color: white; padding: 20px 50px; border: none; border-radius: 50px; font-family: inherit; font-weight: 800; cursor: pointer; transition: 0.3s; }
+.btn:hover { background: var(--violet); transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+/* Form Elements */
 form { max-width: 600px; margin: 40px auto; }
-input, textarea {
-    width: 100%; padding: 20px; margin-bottom: 20px;
-    border: 2px solid var(--thistle); border-radius: 12px; font-family: inherit; font-size: 1rem;
-}
+input, textarea { width: 100%; padding: 20px; margin-bottom: 20px; border: 2px solid var(--thistle); border-radius: 12px; font-family: inherit; font-size: 1rem; }
 
-/* Footer - Centered and Visible */
-.centered-footer {
-    background: #fff;
-    padding: 60px 20px;
-    border-top: 1px solid var(--mimi);
-    text-align: center;
-    width: 100%;
-}
-
+/* Sticky Footer Treatment */
+.centered-footer { background: #fff; padding: 60px 20px; border-top: 1px solid var(--mimi); text-align: center; width: 100%; }
 .footer-inner p { margin: 5px 0; color: var(--violet); font-weight: 600; }
 .uae-tag { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; }
 
 .status-box { margin-top: 20px; font-weight: 800; height: 30px; }
 .success { color: #27ae60; }
 .error { color: #e74c3c; }
+
+@media (max-width: 768px) {
+    .volunteer-split { flex-direction: column; text-align: center; }
+}
