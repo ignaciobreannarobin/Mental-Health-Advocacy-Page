@@ -15,11 +15,13 @@
             <li><a href="#about">About</a></li>
             <li><a href="#support">Support</a></li>
             <li><a href="#volunteer">Volunteer</a></li>
+            <li><a href="#testimonials">Voices</a></li>
+            <li><a href="#impact">Impact</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <header class="hero">
+    <header class="hero animated-gradient-bg">
         <div class="hero-content">
             <h1>Beautiful Thinking.</h1>
             <p>A sanctuary for mental wellness advocacy in the UAE.</p>
@@ -65,15 +67,70 @@
     </section>
 
     <section id="volunteer" class="section volunteer-area">
-        <div class="volunteer-content">
-            <h2>Participation</h2>
-            <p>You don't need to be a professional to make a difference. We are looking for empathetic individuals to help us organize local workshops, distribute mental health resources, or moderate our online community forums.</p>
-            <div class="spacer-v"></div>
-            <button class="btn hover-effect">Become a Volunteer</button>
+        <div class="volunteer-split">
+            <div class="volunteer-content">
+                <h2>Participation</h2>
+                <p>You don't need to be a professional to make a difference. We are looking for empathetic individuals to help us organize local workshops, distribute mental health resources, or moderate our online community forums.</p>
+                <button class="btn hover-effect">Become a Volunteer</button>
+            </div>
+            <div class="volunteer-image">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600" alt="Community Support Group">
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="section bg-alt">
+    <section id="testimonials" class="section testimonial-wrapper-bg">
+        <div class="testimonial-overlay">
+            <h2>Voices of Eunoia</h2>
+            <p class="section-subtitle light-text">Real excerpts from individuals within our community.</p>
+            
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <p class="quote">"Finding Eunoia felt like finally catching my breath. The community workshops gave me the tools to navigate my anxiety when I felt completely isolated in Dubai."</p>
+                    <span class="author">— Sarah M., Community Member</span>
+                </div>
+                <div class="slide fade">
+                    <p class="quote">"As a volunteer, being able to provide a listening ear to someone in their darkest hour has changed my perspective completely. Eunoia builds bridges of true goodwill."</p>
+                    <span class="author">— Ahmed K., Support Volunteer</span>
+                </div>
+                <div class="slide fade">
+                    <p class="quote">"The resources provided here helped our family understand how to support my teenage brother through clinical depression safely and intelligently."</p>
+                    <span class="author">— Mariam L., Family Caregiver</span>
+                </div>
+            </div>
+            
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="section bg-alt metrics-area">
+        <h2>Our Impact in Numbers</h2>
+        <p class="section-subtitle">The measurable footprint of beautiful thinking across the Emirates.</p>
+        <div class="metrics-grid">
+            <div class="metric-box">
+                <span class="stat-number" data-target="5200">0</span>
+                <span class="stat-label">Individuals Helped</span>
+            </div>
+            <div class="metric-box">
+                <span class="stat-number" data-target="350">0</span>
+                <span class="stat-label">Active Volunteers</span>
+            </div>
+            <div class="metric-box">
+                <span class="stat-number" data-target="45">0</span>
+                <span class="stat-label">Community Projects</span>
+            </div>
+            <div class="metric-box">
+                <span class="stat-number" data-target="120">0</span>
+                <span class="stat-label">Workshops Hosted</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
         <h2>Contact Us</h2>
         <form id="contactForm">
             <input type="text" id="name" placeholder="Full Name" required>
